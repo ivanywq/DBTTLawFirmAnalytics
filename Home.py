@@ -8,7 +8,7 @@ st.set_page_config(
 )
 st.sidebar.success("Select a page above.")
 
-st.header("Home")
+# st.header("Home")
 
 import streamlit.components.v1 as components
 
