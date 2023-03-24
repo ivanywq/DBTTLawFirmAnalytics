@@ -102,6 +102,6 @@ cases_by_month = df_selection.groupby(pd.Grouper(freq='M'))['Cases'].count()
 cases_fig = px.line(cases_by_month, title="Number of New Cases", color_discrete_sequence=px.colors.sequential.Aggrnyl)
 cases_fig.update_xaxes(title="")
 cases_fig.update_yaxes(title="Number of Cases")
-st.plotly_chart(cases_fig)
+st.plotly_chart(cases_fig, use_container_width=True)
 
 
