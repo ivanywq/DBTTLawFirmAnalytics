@@ -1,11 +1,9 @@
 import streamlit as st
-import pickle
 import pandas as pd
-import time
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
-import altair as alt
+
 
 df = pd.read_csv("Customers.csv") 
 
