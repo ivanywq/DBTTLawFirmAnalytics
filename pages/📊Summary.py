@@ -30,8 +30,13 @@ start_date = st.sidebar.date_input("Start date", df.index.min())
 end_date = st.sidebar.date_input("End date", df.index.max())
 
 # Query from Sidebar
-df_selection = df.query(
-    "Category == @category_type & Gender == @gender").loc[start_date:end_date]
+# df_selection = df.query(
+#     "Category == @category_type & Gender == @gender").loc[start_date:end_date, :]
+df_filtered = df.query("Category == @category_type & Gender == @gender")
+df_selection = df_filtered[(df_filtered.index >= pd.to_datetime(start_date)) & (df_filtered.index <= pd.to_datetime(end_date))]
+if df_selection.empty:
+    st.warning("No data available for selected date range and filters.")
+
 if not df_selection.empty:
     #KPIs
     average_age = round(df_selection["Age"].mean())
